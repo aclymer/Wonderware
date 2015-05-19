@@ -1,0 +1,18 @@
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.csprojResolveAssemblyReference.cache
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware.Operator_Station.LaunchDialog.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware.Operator_Station.WorkbenchSubScreen.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware.Operator_Station.Workbench.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware.Operator_Station.MonitorForm.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.csproj.GenerateResource.Cache
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware.Operator_Station.Properties.Resources.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.exe.licenses
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware.Operator_Station.HMIDiagramDockContent.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware Operator Station.exe
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware Operator Station.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware Database.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware_Docking.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\ZedGraph.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware Database.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware_Docking.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.exe
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.pdb

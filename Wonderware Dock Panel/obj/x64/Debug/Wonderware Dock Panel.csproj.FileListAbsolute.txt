@@ -1,0 +1,8 @@
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\obj\x64\Debug\WeifenLuo.WinFormsUI.Docking.Resources.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\obj\x64\Debug\WeifenLuo.WinFormsUI.Docking.Strings.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\obj\x64\Debug\Wonderware Dock Panel.csproj.GenerateResource.Cache
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\bin\x64\Debug\Wonderware_Docking.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\bin\x64\Debug\Wonderware_Docking.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\obj\x64\Debug\Wonderware_Docking.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\obj\x64\Debug\Wonderware_Docking.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Dock Panel\obj\x64\Debug\Wonderware Dock Panel.csprojResolveAssemblyReference.cache

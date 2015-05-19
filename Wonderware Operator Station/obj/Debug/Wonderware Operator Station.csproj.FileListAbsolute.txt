@@ -1,0 +1,30 @@
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Infralution.Common.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Infralution.Controls.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Infralution.Controls.VirtualTree.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\ZedGraph.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\de\Infralution.Common.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\fr\Infralution.Common.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\it\Infralution.Common.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\de\Infralution.Controls.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\fr\Infralution.Controls.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\it\Infralution.Controls.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\de\Infralution.Controls.VirtualTree.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\fr\Infralution.Controls.VirtualTree.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\it\Infralution.Controls.VirtualTree.resources.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware Operator Station.csprojResolveAssemblyReference.cache
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware Operator Station.csproj.GenerateResource.Cache
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Wonderware Operator Station.exe
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Wonderware Operator Station.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Wonderware Database.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Wonderware_Docking.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Wonderware Database.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\Debug\Wonderware_Docking.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware.Operator_Station.LaunchDialog.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware.Operator_Station.WorkbenchSubScreen.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware.Operator_Station.Workbench.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware.Operator_Station.MonitorForm.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware.Operator_Station.HMIDiagramDockContent.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware.Operator_Station.Properties.Resources.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware Operator Station.exe.licenses
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware Operator Station.exe
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\Debug\Wonderware Operator Station.pdb

@@ -1,0 +1,6 @@
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Database\obj\x64\Release\Wonderware Database.csproj.GenerateResource.Cache
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Database\bin\x64\Release\Wonderware Database.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Database\bin\x64\Release\Wonderware Database.pdb
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Database\obj\x64\Release\Wonderware.Properties.Resources.resources
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Database\obj\x64\Release\Wonderware Database.dll
+D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Database\obj\x64\Release\Wonderware Database.pdb
