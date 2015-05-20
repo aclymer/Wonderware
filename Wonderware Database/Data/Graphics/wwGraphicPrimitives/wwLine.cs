@@ -11,36 +11,30 @@ namespace Wonderware.Data
 {
 	public class wwLine : GraphicPrimitive
 	{
-		public Point from;
-		public Point to;
-		public List<wwPoint> POINTS;
-
 		public wwLine()
 		{
 			POINTS = new List<wwPoint>();
 		}
 
-		public override void SyncData(Database p_Database)
+		~wwLine()
 		{
-			base.SyncData(p_Database);
-			//from = new Point(POINTS[0].X, POINTS[0].Y);
-			//to = new Point(POINTS[1].X, POINTS[1].Y);
-			//m_Geometry = new LineGeometry(from, to);
+			POINTS = null;
 		}
+
+		private List<wwPoint> POINTS;
+		private wwPoint l_Point;
+		private Pen l_StrokePen;
 
 		public override void SyncGraphics(Database p_Database)
 		{
-			from = new Point(POINTS[0].X, POINTS[0].Y);
-			to = new Point(POINTS[1].X, POINTS[1].Y);
-			m_Geometry = new LineGeometry(from, to);
 			base.SyncGraphics(p_Database);
+			m_Geometry = new LineGeometry(new Point(POINTS[0].X, POINTS[0].Y), new Point(POINTS[1].X, POINTS[1].Y));
 		}
 
 		public override void AddSubElementObject(XMLPersistedObject p_SubElementObject)
 		{
 			base.AddSubElementObject(p_SubElementObject);
-
-			wwPoint l_Point = p_SubElementObject as wwPoint;
+			l_Point = p_SubElementObject as wwPoint;
 
 			if (l_Point != null)
 			{
@@ -50,12 +44,17 @@ namespace Wonderware.Data
 
 		public override void Render(DrawingContext dc)
 		{
-			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
 
 			if (PENSTYLE == "none")
 				l_StrokePen = null;
+			else
+			{
+				l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+				l_StrokePen.Freeze();
+			}
 
 			dc.DrawGeometry(null, l_StrokePen, m_Geometry);
+
 			base.Render(dc);
 		}
 	}

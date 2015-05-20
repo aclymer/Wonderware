@@ -15,6 +15,13 @@ namespace Wonderware.Data
 		{
 		}
 
+		~wwRectangle()
+		{
+		}
+
+		private Brush l_FillBrush;
+		private Pen l_StrokePen;
+
 		// Attributes
 
 		// Properties
@@ -33,14 +40,23 @@ namespace Wonderware.Data
 
 		public override void Render(DrawingContext dc)
 		{
-			Brush l_FillBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
-			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), (double) PENWIDTH);
-			l_StrokePen.LineJoin = PenLineJoin.Miter;
-			
+
 			if (PENSTYLE == "none")
 				l_StrokePen = null;
+			else if (l_StrokePen == null)
+			{
+				l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+				l_StrokePen.LineJoin = PenLineJoin.Miter;
+				l_StrokePen.Freeze();
+			}
+
 			if (FILLSTYLE == "none")
 				l_FillBrush = null;
+			else if (l_FillBrush == null)
+			{
+				l_FillBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
+				l_FillBrush.Freeze();
+			}
 
 			dc.DrawGeometry(l_FillBrush, l_StrokePen, m_Geometry);
 			base.Render(dc);

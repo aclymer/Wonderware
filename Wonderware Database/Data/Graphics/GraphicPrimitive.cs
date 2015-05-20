@@ -61,9 +61,9 @@ namespace Wonderware.Data
 
 		public virtual void SetBounds(TransformGroup p_TransformGroup)
 		{
-			OriginalBounds = m_Geometry.GetRenderBounds(new Pen(Brushes.Black, 1.0));
-			MatrixTransform l_RootTransform = new MatrixTransform(p_TransformGroup.Value);			
-			RootBounds = l_RootTransform.TransformBounds(m_Geometry.GetRenderBounds(new Pen(Brushes.Black, 1.0)));
+			OriginalBounds = m_Geometry.GetRenderBounds(new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor("rgb( 0, 0, 0)")), 1.0));
+			MatrixTransform l_RootTransform = new MatrixTransform(p_TransformGroup.Value);
+			RootBounds = l_RootTransform.TransformBounds(m_Geometry.GetRenderBounds(new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor("rgb( 0, 0, 0)")), 1.0)));
 			RenderBounds = RootBounds;
 		}
 
@@ -93,6 +93,7 @@ namespace Wonderware.Data
 			}
 			MatrixTransform l_RenderTransform = new MatrixTransform(p_TransformGroup.Value);
 			l_Geometry.Transform = l_RenderTransform;
+
 			if (RootBounds != RenderBounds)
 			{
 				p_TransformGroup.Children.Remove(l_TranslateTransform1);

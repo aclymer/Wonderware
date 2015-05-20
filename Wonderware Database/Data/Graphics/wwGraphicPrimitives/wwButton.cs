@@ -20,7 +20,9 @@ namespace Wonderware.Data
 
 		~wwButton()
 		{
-			m_Text = null;
+			l_FillBrush = null;
+			l_StrokePen = null;
+			l_Highlight = null;
 		}
 
 		// Attributes
@@ -105,48 +107,51 @@ namespace Wonderware.Data
 				}
 				*/
 			}
-			m_Text.SetForegroundBrush(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor("rgb(0, 0, 0)")));
+			m_Text.SetForegroundBrush(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor("rgb( 0, 0, 0)")));
 			m_Text.TextAlignment = TextAlignment.Center;
-			m_CurrentLocation = new Point(DIMENSION.LEFT + DIMENSION.WIDTH / 2, DIMENSION.TOP + (DIMENSION.HEIGHT - m_Text.Extent) / 2);
 		}
 
 		public override void SyncGraphics(Database p_Database)
 		{
-			m_Geometry = new RectangleGeometry(new Rect(DIMENSION.LEFT, DIMENSION.TOP, DIMENSION.WIDTH, DIMENSION.HEIGHT));
-			
-			l_Highlight.Clear();
-			l_Highlight.Add(new Point(DIMENSION.LEFT, DIMENSION.TOP));
-			l_Highlight.Add(new Point(DIMENSION.LEFT, DIMENSION.TOP + DIMENSION.HEIGHT));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP + DIMENSION.HEIGHT));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + 1, DIMENSION.TOP + 1)); 
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH - 1, DIMENSION.TOP + 1));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + 1, DIMENSION.TOP + DIMENSION.HEIGHT - 1));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH - 1, DIMENSION.TOP + DIMENSION.HEIGHT - 1));
 			SyncText();
 			base.SyncGraphics(p_Database);
+			m_Geometry = new RectangleGeometry(new Rect(DIMENSION.LEFT, DIMENSION.TOP, DIMENSION.WIDTH, DIMENSION.HEIGHT));
 		}
 
 		public override void Render(DrawingContext dc)
-		{						
+		{
 			l_FillBrush.Clear();
-			l_FillBrush.Add(new SolidColorBrush(System.Windows.Media.Color.FromRgb(  0,  0,  0)));	// Base Layer (black)
-			l_FillBrush.Add(new SolidColorBrush(System.Windows.Media.Color.FromRgb(186,186,186)));	// Top Layer  (light grey)
+			l_FillBrush.Add(new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0)));	// Base Layer (black)
+			l_FillBrush.Add(new SolidColorBrush(System.Windows.Media.Color.FromRgb(186, 186, 186)));	// Top Layer  (light grey)
+			l_FillBrush[0].Freeze();
+			l_FillBrush[1].Freeze();
 
 			l_StrokePen.Clear();
-			l_StrokePen.Add(new Pen(new SolidColorBrush(System.Windows.Media.Color.FromRgb(  0,  0,  0)), 1.0));	// Base Layer (black)
-			l_StrokePen.Add(new Pen(new SolidColorBrush(System.Windows.Media.Color.FromRgb(255,255,255)), 1.0));	// Highlight  (white)	
-			l_StrokePen.Add(new Pen(new SolidColorBrush(System.Windows.Media.Color.FromRgb(128,128,128)), 1.0));	// Shadow	  (grey)
-			l_StrokePen[0].StartLineCap = PenLineCap.Flat;
-			l_StrokePen[0].EndLineCap = PenLineCap.Flat;
-			l_StrokePen[0].LineJoin = PenLineJoin.Miter;
-			l_StrokePen[1].StartLineCap = PenLineCap.Flat;
-			l_StrokePen[1].EndLineCap = PenLineCap.Flat;
-			l_StrokePen[1].LineJoin = PenLineJoin.Miter;
-			l_StrokePen[2].StartLineCap = PenLineCap.Flat;
-			l_StrokePen[2].EndLineCap = PenLineCap.Flat;
-			l_StrokePen[2].LineJoin = PenLineJoin.Miter;
+			l_StrokePen.Add(new Pen(new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0)), 1.0));	// Base Layer (black)
+			l_StrokePen.Add(new Pen(new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255)), 1.0));	// Highlight  (white)	
+			l_StrokePen.Add(new Pen(new SolidColorBrush(System.Windows.Media.Color.FromRgb(128, 128, 128)), 1.0));	// Shadow	  (grey)
 
+			foreach (Pen l_Pen in l_StrokePen)
+			{
+				l_Pen.StartLineCap = PenLineCap.Flat;
+				l_Pen.EndLineCap = PenLineCap.Flat;
+				l_Pen.LineJoin = PenLineJoin.Miter;
+				l_Pen.Freeze();
+			}
+			
+			Rect l_Bounds = m_Geometry.GetRenderBounds(l_StrokePen[0]);
+			m_CurrentLocation = new Point(l_Bounds.Left + l_Bounds.Width / 2, l_Bounds.Top + (l_Bounds.Height - m_Text.Extent) / 2);
+
+			l_Highlight.Clear();
+			l_Highlight.Add(new Point(l_Bounds.Left, l_Bounds.Top));
+			l_Highlight.Add(new Point(l_Bounds.Left, l_Bounds.Top + l_Bounds.Height));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width, l_Bounds.Top));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width, l_Bounds.Top + l_Bounds.Height));
+			l_Highlight.Add(new Point(l_Bounds.Left + 1, l_Bounds.Top + 1));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 1, l_Bounds.Top + 1));
+			l_Highlight.Add(new Point(l_Bounds.Left + 1, l_Bounds.Top + l_Bounds.Height - 1));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 1, l_Bounds.Top + l_Bounds.Height - 1));			
+	
 			dc.DrawGeometry(l_FillBrush[1], l_StrokePen[1], m_Geometry);
 			dc.DrawLine(l_StrokePen[1], l_Highlight[0], l_Highlight[1]);
 			dc.DrawLine(l_StrokePen[1], l_Highlight[0], l_Highlight[2]);
@@ -156,8 +161,7 @@ namespace Wonderware.Data
 			dc.DrawLine(l_StrokePen[1], l_Highlight[4], l_Highlight[6]);
 			dc.DrawLine(l_StrokePen[2], l_Highlight[7], l_Highlight[5]);
 			dc.DrawLine(l_StrokePen[2], l_Highlight[7], l_Highlight[6]);
-			dc.DrawRectangle(null, l_StrokePen[0], m_Geometry.GetRenderBounds(l_StrokePen[1]));// new Rect(DIMENSION.LEFT, DIMENSION.TOP, DIMENSION.WIDTH, DIMENSION.HEIGHT));
-			
+			dc.DrawRectangle(null, l_StrokePen[0], m_Geometry.GetRenderBounds(l_StrokePen[1]));
 			dc.DrawText(m_Text, m_CurrentLocation);
 			base.Render(dc);
 		}

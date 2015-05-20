@@ -13,6 +13,34 @@ namespace Wonderware.Data
 {
 	public class wwText : GraphicPrimitive
 	{
+		public wwText()
+		{
+			PHRASEID = String.Empty;
+			TEXTSTRING = String.Empty;
+			TEXTCOLOR = String.Empty;
+			TEXTJUSTIFY = String.Empty;
+			FONT = String.Empty;
+			FONTSTYLE = String.Empty;
+			FONTWEIGHT = String.Empty;
+			FONTSIZE = 0;
+			UNDERLINE = false;
+			m_Text = null;
+			l_sText = String.Empty;
+		}
+
+		~wwText()
+		{
+			PHRASEID = null;
+			TEXTSTRING = null;
+			TEXTCOLOR = null;
+			TEXTJUSTIFY = null;
+			FONT = null;
+			FONTSTYLE = null;
+			FONTWEIGHT = null;
+			m_Text = null;
+			l_sText = null;
+		}
+
 		[AttributeIsXMLAttribute]
 		public String PHRASEID;
 		[AttributeIsXMLAttribute]
@@ -32,47 +60,27 @@ namespace Wonderware.Data
 		[AttributeIsXMLAttribute]
 		public bool UNDERLINE;
 
+		private wwFont l_Font;
+		private String l_sText;
 		private FormattedText m_Text;
-		private Point m_CurrentLocation;
-
-		public wwText()
-		{
-		}
-
-		~wwText()
-		{
-			m_Text = null;
-		}
-
-		public override void SyncGraphics(Database p_Database)
-		{
-			base.SyncGraphics(p_Database);
-			SyncText();
-		}
+		private Point l_Location, m_CurrentLocation;
+		private MatrixTransform l_RootTransform, l_TranslateTransform1, l_ScaleTransform, l_TranslateTransform2, l_RenderTransform;
+		private RotateTransform l_Rotate;
 
 		private void SyncText()
 		{
-			wwFont l_Font = new wwFont(FONT, FONTWEIGHT, FONTSIZE, TEXTJUSTIFY);
-			String l_sText = String.Empty;
+			l_Font = new wwFont(FONT, FONTWEIGHT, FONTSIZE, TEXTJUSTIFY);
+			l_sText = String.Empty;
 			l_sText = TEXTSTRING;
+
 			if (l_sText == null || l_sText == String.Empty)
 			{
 				l_sText = " ";
 			}
+
 			if (m_Text == null || m_Text.Text != l_sText)
-			{
 				m_Text = l_Font.GetFormattedText(l_sText);
-				/*
-				if (l_Font != null)
-				{
-					m_Text = l_Font.GetFormattedText(l_sText);
-				}
-				else
-				{
-					m_Text = wwFont.GetDefaultFormattedText(l_sText);
-				}
-				*/
-			}
+
 			m_Text.SetForegroundBrush(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(TEXTCOLOR)));
 			m_Text.TextAlignment = l_Font.SetTextAlignment();
 		}
@@ -81,7 +89,7 @@ namespace Wonderware.Data
 		{
 			SyncText();
 			OriginalBounds = new Rect(DIMENSION.LEFT, DIMENSION.TOP, DIMENSION.WIDTH, DIMENSION.HEIGHT);
-			MatrixTransform l_RootTransform = new MatrixTransform(p_TransformGroup.Value);
+			l_RootTransform = new MatrixTransform(p_TransformGroup.Value);
 			RootBounds = l_RootTransform.TransformBounds(OriginalBounds);
 			RenderBounds = RootBounds;
 		}
@@ -94,7 +102,6 @@ namespace Wonderware.Data
 		protected void ApplyTextLocation(TransformGroup p_TransformGroup)
 		{
 			SyncText();
-			Point l_Location;
 			switch (this.TEXTJUSTIFY)
 			{
 				case "center":
@@ -107,9 +114,7 @@ namespace Wonderware.Data
 					l_Location = new Point(DIMENSION.LEFT, DIMENSION.TOP);
 					break;
 			}
-			MatrixTransform l_TranslateTransform1 = null;
-			MatrixTransform l_ScaleTransform = null;
-			MatrixTransform l_TranslateTransform2 = null;
+
 			if (RootBounds != RenderBounds)
 			{
 				int l_iCurrentTransformCount = p_TransformGroup.Children.Count;
@@ -120,8 +125,10 @@ namespace Wonderware.Data
 				l_TranslateTransform1 = new MatrixTransform(1.0, 0.0, 0.0, 1.0, -RootBounds.X, -RootBounds.Y);
 				p_TransformGroup.Children.Insert(l_iCurrentTransformCount, l_TranslateTransform1);
 			}
-			MatrixTransform l_RenderTransform = new MatrixTransform(p_TransformGroup.Value);
+
+			l_RenderTransform = new MatrixTransform(p_TransformGroup.Value);
 			m_CurrentLocation = l_RenderTransform.Transform(l_Location);
+
 			if (RootBounds != RenderBounds)
 			{
 				p_TransformGroup.Children.Remove(l_TranslateTransform1);
@@ -130,11 +137,17 @@ namespace Wonderware.Data
 			}
 		}
 
+		public override void SyncGraphics(Database p_Database)
+		{
+			base.SyncGraphics(p_Database);
+			SyncText();
+		}
+
 		public override void Render(DrawingContext dc)
 		{
-			RotateTransform l_Rotate = new RotateTransform(ROTATION * 90);
-			dc.PushTransform(l_Rotate);
 			dc.DrawText(m_Text, m_CurrentLocation);
+			l_Rotate = new RotateTransform(ROTATION * 90);
+			dc.PushTransform(l_Rotate);
 			base.Render(dc);
 		}
 	}

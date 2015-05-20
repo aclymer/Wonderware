@@ -37,6 +37,9 @@ namespace Wonderware.Data
 
 		~wwFont()
 		{
+			family = null;
+			style = null;
+			align = null;
 		}
 
 		public FormattedText GetFormattedText(String p_sText)
@@ -61,12 +64,11 @@ namespace Wonderware.Data
 			{
 				case "right":
 					return TextAlignment.Right;
-				case "center":
-					return TextAlignment.Center;
 				case "left":
 					return TextAlignment.Left;
+				case "center":
 				default:
-					return TextAlignment.Justify;
+					return TextAlignment.Center;
 			}
 		}
 

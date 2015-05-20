@@ -11,17 +11,19 @@ namespace Wonderware.Data
 {
 	public class wwPolyline : GraphicPrimitive
 	{
-		public List<wwPoint> POINTS;
-
 		public wwPolyline()
 		{
 			POINTS = new List<wwPoint>();
 		}
 
-		public override void SyncData(Database p_Database)
+		~wwPolyline()
 		{
-			base.SyncData(p_Database);
+			POINTS = null;
 		}
+
+		private List<wwPoint> POINTS;
+		private wwPoint l_Point;
+		private Pen l_StrokePen;
 
 		override public void SyncGraphics(Database p_Database)
 		{
@@ -33,7 +35,7 @@ namespace Wonderware.Data
 		{
 			base.AddSubElementObject(p_SubElementObject);
 
-			wwPoint l_Point = p_SubElementObject as wwPoint;
+			l_Point = p_SubElementObject as wwPoint;
 
 			if (l_Point != null)
 			{
@@ -48,15 +50,21 @@ namespace Wonderware.Data
 				Debug.WriteLine("The IlvPolygon has no points. It will not be rendered.", "RENDER");
 				return;
 			}
-			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
-			l_StrokePen.LineJoin = PenLineJoin.Round;
-			l_StrokePen.StartLineCap = PenLineCap.Round;
-			l_StrokePen.EndLineCap = PenLineCap.Round;
 
 			if (PENSTYLE == "none")
 				l_StrokePen = null;
+			else
+			{
+				l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+				l_StrokePen.LineJoin = PenLineJoin.Round;
+				l_StrokePen.StartLineCap = PenLineCap.Round;
+				l_StrokePen.EndLineCap = PenLineCap.Round;
+				l_StrokePen.Freeze();
+			}
 
-			dc.DrawGeometry(null, l_StrokePen, m_Geometry);
+			if (m_Geometry != null)
+				dc.DrawGeometry(null, l_StrokePen, m_Geometry);
+
 			base.Render(dc);
 		}
 	}

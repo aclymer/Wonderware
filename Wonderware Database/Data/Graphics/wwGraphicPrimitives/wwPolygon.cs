@@ -10,14 +10,21 @@ namespace Wonderware.Data
 {
 	public class wwPolygon : GraphicPrimitive
 	{
-
-		public List<wwPoint> POINTS;
-
 		public wwPolygon()
 		{
 			POINTS = new List<wwPoint>();
 		}
 		
+		~wwPolygon()
+		{
+			POINTS = null;
+		}
+
+		private List<wwPoint> POINTS;
+		private Brush l_FillBrush;
+		private Pen l_StrokePen;
+		private wwPoint l_Point;
+
 		// Attributes
 
 		// Properties
@@ -33,8 +40,7 @@ namespace Wonderware.Data
 		public override void AddSubElementObject(XMLPersistedObject p_SubElementObject)
 		{
 			base.AddSubElementObject(p_SubElementObject);
-
-			wwPoint l_Point = p_SubElementObject as wwPoint;
+			l_Point = p_SubElementObject as wwPoint;
 
 			if (l_Point != null)
 			{
@@ -49,13 +55,22 @@ namespace Wonderware.Data
 				Debug.WriteLine("The IlvPolygon has no points. It will not be rendered.", "RENDER");
 				return;
 			}
-			Brush l_FillBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
-			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
 
 			if (PENSTYLE == "none")
 				l_StrokePen = null;
+			else if (l_StrokePen == null)
+			{
+				l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+				l_StrokePen.Freeze();
+			}
+
 			if (FILLSTYLE == "none")
 				l_FillBrush = null;
+			else if (l_FillBrush == null)
+			{
+				l_FillBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
+				l_FillBrush.Freeze();
+			}
 
 			dc.DrawGeometry(l_FillBrush, l_StrokePen, m_Geometry);
 			base.Render(dc);
