@@ -21,7 +21,6 @@ namespace Wonderware.Data
 		public override void SyncData(Database p_Database)
 		{
 			base.SyncData(p_Database);
-			m_Geometry = Grapher.GetGeometryForIlvPoints(POINTS, false);
 		}
 
 		override public void SyncGraphics(Database p_Database)
@@ -53,6 +52,10 @@ namespace Wonderware.Data
 			l_StrokePen.LineJoin = PenLineJoin.Round;
 			l_StrokePen.StartLineCap = PenLineCap.Round;
 			l_StrokePen.EndLineCap = PenLineCap.Round;
+
+			if (PENSTYLE == "none")
+				l_StrokePen = null;
+
 			dc.DrawGeometry(null, l_StrokePen, m_Geometry);
 			base.Render(dc);
 		}

@@ -51,6 +51,10 @@ namespace Wonderware.Data
 		public override void Render(DrawingContext dc)
 		{
 			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+
+			if (PENSTYLE == "none")
+				l_StrokePen = null;
+
 			dc.DrawGeometry(null, l_StrokePen, m_Geometry);
 			base.Render(dc);
 		}

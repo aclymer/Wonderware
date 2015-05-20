@@ -7,22 +7,17 @@ namespace Wonderware.Data
 {
     public class wwStroke : wwStyle
     {
-        public float miterLimit;
-
         [AttributeIsXMLAttribute]
-		public float PENWIDTH;
-		[AttributeIsXMLAttribute]
-		public String PENSTYLE;
-		[AttributeIsXMLAttribute]
-		public String PENCOLOR;
+        public float miterLimit;
         [AttributeIsXMLAttribute]
         public String endCap;
         [AttributeIsXMLAttribute]
-        public String lineJoin;
+        public System.Windows.Media.PenLineJoin lineJoin;
 
         public wwStroke()
         {
-            lineWidth = 1.0f;
+            PENWIDTH = 1.0f;
+			PENCOLOR = String.Empty;
         }
 
         ~wwStroke()

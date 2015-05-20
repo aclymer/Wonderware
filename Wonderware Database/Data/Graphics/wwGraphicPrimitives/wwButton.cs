@@ -115,14 +115,14 @@ namespace Wonderware.Data
 			m_Geometry = new RectangleGeometry(new Rect(DIMENSION.LEFT, DIMENSION.TOP, DIMENSION.WIDTH, DIMENSION.HEIGHT));
 			
 			l_Highlight.Clear();
-			l_Highlight.Add(new Point(DIMENSION.LEFT + 1, DIMENSION.TOP + 1));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + 1, DIMENSION.TOP + DIMENSION.HEIGHT ));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP + 1));
+			l_Highlight.Add(new Point(DIMENSION.LEFT, DIMENSION.TOP));
+			l_Highlight.Add(new Point(DIMENSION.LEFT, DIMENSION.TOP + DIMENSION.HEIGHT));
+			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP));
 			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP + DIMENSION.HEIGHT));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + 2, DIMENSION.TOP + 2)); 
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP + 2));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + 2, DIMENSION.TOP + DIMENSION.HEIGHT));
-			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH, DIMENSION.TOP + DIMENSION.HEIGHT));
+			l_Highlight.Add(new Point(DIMENSION.LEFT + 1, DIMENSION.TOP + 1)); 
+			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH - 1, DIMENSION.TOP + 1));
+			l_Highlight.Add(new Point(DIMENSION.LEFT + 1, DIMENSION.TOP + DIMENSION.HEIGHT - 1));
+			l_Highlight.Add(new Point(DIMENSION.LEFT + DIMENSION.WIDTH - 1, DIMENSION.TOP + DIMENSION.HEIGHT - 1));
 			SyncText();
 			base.SyncGraphics(p_Database);
 		}

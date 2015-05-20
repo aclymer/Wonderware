@@ -47,7 +47,7 @@ namespace Wonderware.Data
 			}
 			if (style == "normal")
 			{
-				return new FormattedText(p_sText, CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight, new Typeface(new FontFamily(family), FontStyles.Normal, FontWeights.Light, FontStretches.Normal), Math.Round(size * 4 / 3), Brushes.Black);
+				return new FormattedText(p_sText, CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight, new Typeface(new FontFamily(family), FontStyles.Normal, FontWeights.Normal, FontStretches.Normal), Math.Round(size * 4 / 3), Brushes.Black);
 			}
 			else
 			{

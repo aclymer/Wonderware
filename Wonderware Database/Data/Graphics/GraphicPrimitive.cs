@@ -57,8 +57,6 @@ namespace Wonderware.Data
 		{
 			TranslateTransform l_Translate = new TranslateTransform((Parent as HMIDiagram).DIMENSION.LEFT, (Parent as HMIDiagram).DIMENSION.TOP);
 			dc.PushTransform(l_Translate);
-			RectangleGeometry l_Clip = this.DIMENSION.ToRectangleGeometry();
-			dc.PushClip(l_Clip);
 		}
 
 		public virtual void SetBounds(TransformGroup p_TransformGroup)

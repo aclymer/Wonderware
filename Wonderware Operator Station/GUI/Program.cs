@@ -21,7 +21,7 @@ namespace Wonderware.Operator_Station
 		private static void Main(string[] args)
 		{
 			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(true);
+			Application.SetCompatibleTextRenderingDefault(false);
 			if (args.Length == 3)
 			{
 				string sDatabasePath = args[0];

@@ -24,12 +24,6 @@ namespace Wonderware.Data
 
 		// Sub Elements
 
-		public override void SyncData(Database p_Database)
-		{
-			base.SyncData(p_Database);
-			//m_Geometry = Grapher.GetGeometryForIlvPoints(POINTS, true);
-		}
-
 		public override void SyncGraphics(Database p_Database)
 		{
 			base.SyncGraphics(p_Database);
@@ -55,10 +49,15 @@ namespace Wonderware.Data
 				Debug.WriteLine("The IlvPolygon has no points. It will not be rendered.", "RENDER");
 				return;
 			}
-			Brush l_FullBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
+			Brush l_FillBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
 			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
-			l_StrokePen.
-			dc.DrawGeometry(l_FullBrush, l_StrokePen, m_Geometry);
+
+			if (PENSTYLE == "none")
+				l_StrokePen = null;
+			if (FILLSTYLE == "none")
+				l_FillBrush = null;
+
+			dc.DrawGeometry(l_FillBrush, l_StrokePen, m_Geometry);
 			base.Render(dc);
 		}
 	}

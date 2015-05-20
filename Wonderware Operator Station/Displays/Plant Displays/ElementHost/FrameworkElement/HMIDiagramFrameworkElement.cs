@@ -24,7 +24,7 @@ namespace Wonderware.Operator_Station
 		public HMIDiagramFrameworkElement(HMIDiagram p_HMIDiagram, Database p_Database)
 		{
 			m_TransformGroup = new TransformGroup();
-			m_MainTransform = new MatrixTransform(1.0, 0.0, 0.0, 1.0, 1.0, 1.0);
+			m_MainTransform = new MatrixTransform(1.0, 0.0, 0.0, 1.0, 0.0, 0.0);
 			m_Database = p_Database;
 			Init(p_HMIDiagram);
 			Zoom = 1.0;
@@ -98,7 +98,7 @@ namespace Wonderware.Operator_Station
 
 		private void FireZoomChanged()
 		{
-			this.RenderTransform = new MatrixTransform(m_dZoom * m_dScaleX, 0.0, 0.0, m_dZoom * m_dScaleY, 1.0, 1.0);
+			this.RenderTransform = new MatrixTransform(m_dZoom * m_dScaleX, 0.0, 0.0, m_dZoom * m_dScaleY, 0.0, 0.0);
 		}
 
 		void PlantDisplayFrameworkElement_MouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
@@ -129,9 +129,10 @@ namespace Wonderware.Operator_Station
 				HMIDiagram l_HMIDiagram = l_GraphicObject as HMIDiagram;
 				if (l_HMIDiagram != null)
 				{
+					int index = i + 1;
 					foreach (GraphicObject s_GraphicObject in l_HMIDiagram.GraphicObjects)
 					{
-						m_HMIDiagram.GraphicObjects.Add(s_GraphicObject);
+						m_HMIDiagram.GraphicObjects.Insert(index++, s_GraphicObject);
 					}
 				}
 			}

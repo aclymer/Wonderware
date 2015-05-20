@@ -35,6 +35,12 @@ namespace Wonderware.Data
 		{
 			Brush l_FillBrush = new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(FILLCOLOR));
 			Pen l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+
+			if (PENSTYLE == "none")
+				l_StrokePen = null;
+			if (FILLSTYLE == "none")
+				l_FillBrush = null;
+
 			dc.DrawGeometry(l_FillBrush, l_StrokePen, m_Geometry);
 			base.Render(dc);
 		}
