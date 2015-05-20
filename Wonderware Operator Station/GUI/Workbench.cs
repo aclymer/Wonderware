@@ -58,7 +58,7 @@ namespace Wonderware.Operator_Station
 			g_StatusBar_Label.Text = String.Empty;
 			foreach (HMIDiagram l_HMIDiagram in m_Wonderware_Database.GetHMIDiagrams().Values)
 			{
-				g_AllHMIDiagramsLoaded.Items.Add(l_HMIDiagram.ID);
+				g_AllHMIDiagramsLoaded.Items.Add(l_HMIDiagram.ID);					
 			}
 		}
 

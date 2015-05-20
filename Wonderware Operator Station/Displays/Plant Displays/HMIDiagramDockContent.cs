@@ -22,7 +22,7 @@ namespace Wonderware.Operator_Station
 			Text = p_HMIDiagram.ID;
 			SuspendLayout();
 			m_HMIDiagramControl = new HMIDiagramElementHost(m_HMIDiagram, p_Database);
-			m_HMIDiagramControl.Dock = DockStyle.Fill;
+			m_HMIDiagramControl.Dock = DockStyle.Top;
 			m_HMIDiagramControl.BackColor = Grapher.FromDrawingColorStrToDrawingColor(m_HMIDiagram.BGCOLOR);
 			m_HMIDiagramControl.SetBounds((int)m_HMIDiagram.DIMENSION.LEFT, (int)m_HMIDiagram.DIMENSION.TOP, (int)m_HMIDiagram.DIMENSION.WIDTH, (int)m_HMIDiagram.DIMENSION.HEIGHT);
 			m_HMIDiagramControl.SizeChanged += m_PlantDisplayControl_SizeChanged;
