@@ -16,3 +16,5 @@ D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin
 D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\bin\x64\Debug\Wonderware_Docking.pdb
 D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.exe
 D:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.pdb
+E:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.exe
+E:\Projects\CBY\004_Coding\Wonderware\Wonderware\Wonderware Operator Station\obj\x64\Debug\Wonderware Operator Station.pdb

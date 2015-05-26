@@ -143,14 +143,14 @@ namespace Wonderware.Data
 			m_CurrentLocation = new Point(l_Bounds.Left + l_Bounds.Width / 2, l_Bounds.Top + (l_Bounds.Height - m_Text.Extent) / 2);
 
 			l_Highlight.Clear();
-			l_Highlight.Add(new Point(l_Bounds.Left, l_Bounds.Top));
-			l_Highlight.Add(new Point(l_Bounds.Left, l_Bounds.Top + l_Bounds.Height));
-			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width, l_Bounds.Top));
-			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width, l_Bounds.Top + l_Bounds.Height));
 			l_Highlight.Add(new Point(l_Bounds.Left + 1, l_Bounds.Top + 1));
-			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 1, l_Bounds.Top + 1));
 			l_Highlight.Add(new Point(l_Bounds.Left + 1, l_Bounds.Top + l_Bounds.Height - 1));
-			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 1, l_Bounds.Top + l_Bounds.Height - 1));			
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 1, l_Bounds.Top + 1));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 1, l_Bounds.Top + l_Bounds.Height - 1));
+			l_Highlight.Add(new Point(l_Bounds.Left + 2, l_Bounds.Top + 2));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 2, l_Bounds.Top + 2));
+			l_Highlight.Add(new Point(l_Bounds.Left + 2, l_Bounds.Top + l_Bounds.Height - 2));
+			l_Highlight.Add(new Point(l_Bounds.Left + l_Bounds.Width - 2, l_Bounds.Top + l_Bounds.Height - 2));			
 	
 			dc.DrawGeometry(l_FillBrush[1], l_StrokePen[1], m_Geometry);
 			dc.DrawLine(l_StrokePen[1], l_Highlight[0], l_Highlight[1]);

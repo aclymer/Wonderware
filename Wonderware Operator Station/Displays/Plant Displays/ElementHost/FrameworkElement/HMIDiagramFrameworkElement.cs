@@ -24,7 +24,7 @@ namespace Wonderware.Operator_Station
 		public HMIDiagramFrameworkElement(HMIDiagram p_HMIDiagram, Database p_Database)
 		{
 			m_TransformGroup = new TransformGroup();
-			m_MainTransform = new MatrixTransform(1.0, 0.0, 0.0, 1.0, 0.0, 0.0);
+			m_MainTransform = new MatrixTransform(1.0, 0.0, 0.0, 1.0, 0.0, 47.0);
 			m_Database = p_Database;
 			Init(p_HMIDiagram);
 			Zoom = 1.0;

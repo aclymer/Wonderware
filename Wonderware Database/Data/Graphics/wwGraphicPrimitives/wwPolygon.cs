@@ -61,6 +61,9 @@ namespace Wonderware.Data
 			else if (l_StrokePen == null)
 			{
 				l_StrokePen = new Pen(new SolidColorBrush(Grapher.FromDrawingColorStrToMediaColor(PENCOLOR)), PENWIDTH);
+				l_StrokePen.StartLineCap = PenLineCap.Flat;
+				l_StrokePen.EndLineCap = PenLineCap.Flat;
+				l_StrokePen.LineJoin = PenLineJoin.Miter;
 				l_StrokePen.Freeze();
 			}
 
